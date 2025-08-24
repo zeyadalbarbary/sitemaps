@@ -1,0 +1,68 @@
+<?php
+// قراءة جميع ملفات XML في نفس المجلد
+$files = glob("*.xml");
+?>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>خرائط الموقع - storebooks.shop</title>
+  <style>
+    body {
+      font-family: 'Tajawal', sans-serif;
+      background-color: #ffffff;
+      color: #333;
+      text-align: center;
+      padding: 30px;
+      direction: rtl;
+    }
+    h1 {
+      color: #ff7a26; /* نفس اللون الأساسي بتاع موقعك */
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 20px auto;
+      max-width: 600px;
+    }
+    ul li {
+      margin: 10px 0;
+      background: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 12px;
+      transition: 0.3s;
+    }
+    ul li:hover {
+      background: #ff7a26;
+      color: #fff;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+    footer {
+      margin-top: 30px;
+      font-size: 14px;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <h1>📌 خرائط الموقع - storebooks.shop</h1>
+  <p>جميع ملفات الـ Sitemap المخزنة هنا:</p>
+  <ul>
+    <?php if (!empty($files)): ?>
+      <?php foreach ($files as $file): ?>
+        <li><a href="<?php echo htmlspecialchars($file); ?>" target="_blank"><?php echo htmlspecialchars($file); ?></a></li>
+      <?php endforeach; ?>
+    <?php else: ?>
+      <li>⚠️ لا توجد ملفات Sitemap حالياً.</li>
+    <?php endif; ?>
+  </ul>
+  <footer>
+    جميع الحقوق محفوظة © <?php echo date("Y"); ?> <a href="https://storebooks.shop" target="_blank">storebooks.shop</a>
+  </footer>
+</body>
+</html>
